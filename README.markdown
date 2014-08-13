@@ -18,6 +18,12 @@ famousdocs
   --ignore=[path] Ignore a directory.
 ```
 
+Ignoring multiple directories
+```
+famousdocs --base=./lib --ignore=./lib/famous --ignore=./lib/famous/core
+
+```
+
 
 FAQ
 ===============
