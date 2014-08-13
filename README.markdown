@@ -15,6 +15,7 @@ famousdocs
   --base=[path] The directory to start searching from, relative.
   --out=[path] The directory where the compiled templates will write to
   --outData=[path **OPTIONAL**] Path where the json data will be saved. Useful to debug templates
+  --ignore=[path] Ignore a directory.
 ```
 
 

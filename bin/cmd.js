@@ -13,6 +13,7 @@ if (argv._.indexOf('help') > 0 || argv.h == true || argv.help == true) {
   console.log('----------------');
   console.log('--base=[path] The directory to start searching from');
   console.log('--out=[path] The directory where the compiled templates will write to.');
+  console.log('--ignore=[paths **OPTIONAL**] Add a directory nested underneath the base directory to ignore.');
   console.log('--outData=[path **OPTIONAL**] Path where the json data will be saved. Useful to debug templates');
   process.exit(0);
 }
@@ -30,6 +31,15 @@ var opts = {
 
 if (argv.outData) { 
   opts.outData = argv.outData;
+}
+
+if (argv.ignore) {
+  if (!argv.ignore instanceof Array) {
+    options.ignoreDirectories = [argv.ignore];
+  }
+  else {
+    options.ignoreDirectories = argv.ignore;
+  }
 }
 
 docGenerator(opts, function () {
