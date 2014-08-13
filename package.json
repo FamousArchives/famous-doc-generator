@@ -25,10 +25,10 @@
     "jade": "^1.4.2",
     "minimist": "^0.1.0",
     "mkdirp": "^0.5.0",
+    "ncp": "^0.6.0",
     "nodemon": "^1.2.0",
     "tap": "^0.4.11",
     "tape": "^2.13.2",
-    "wrench": "^1.5.8",
     "yuidocjs": "git://github.com/timjchin/yuidoc.git#master"
   },
   "bin": {
