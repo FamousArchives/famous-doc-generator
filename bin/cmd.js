@@ -34,13 +34,15 @@ if (argv.outData) {
 }
 
 if (argv.ignore) {
-  if (!argv.ignore instanceof Array) {
-    options.ignoreDirectories = [argv.ignore];
+  if (!(argv.ignore instanceof Array)) {
+    opts.ignoreDirectories = [argv.ignore];
   }
   else {
-    options.ignoreDirectories = argv.ignore;
+    opts.ignoreDirectories = argv.ignore;
   }
-}
+} else opts.ignoreDirectories = [];
+opts.ignoreDirectories.push('.git');
+
 
 docGenerator(opts, function () {
   console.log('documentation is generated.');
