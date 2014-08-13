@@ -58,6 +58,9 @@ mixin methodName(name, params, access, static, deprecated)
       if (access == 'private')
         small.mar-l-20.medium-grey-bg.pad-5.up3.bor-2 Private
 
+      if access == 'protected'
+        small.mar-l-20.medium-grey-bg.pad-5.up3.bor-2 Protected
+
       if static
         small.mar-l-20.medium-grey-bg.pad-5.up3.bor-2 Static
 
@@ -68,17 +71,20 @@ mixin methodName(name, params, access, static, deprecated)
 mixin otherClasses(classes)
   ul.mar-20
     each detail, name in classes
-      li
-        -var href = name + '.html'
-        a(href='#{href}')
-          =name
+      if detail.access !== 'protected'
+        li
+          -var href = name + '.html'
+          a(href='#{href}')
+            =name
 
 mixin eventBlock(name, events, id)
   h5.medium-grey.miniSpacer.col1= name
   each event in events
     .col1.event-block.miniSpacer(id="#{id + event.name}")
-      p.col1-3= event.name
-      p.col2-3= event.description
+      p.col1 
+        +methodName(event.name, event.params)
+      each val in event.params
+        +parameter(val)
 
 mixin titleBlock(title)
   h5.medium-grey.miniSpacer.col1= title
