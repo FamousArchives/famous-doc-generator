@@ -20,16 +20,16 @@
   "homepage": "https://github.com/Famous/widget-slider",
   "dependencies": {
     "async": "^0.9.0",
-    "minimist": "^0.1.0",
     "eslint": "^0.6.2",
+    "highlight.js": "^8.1.0",
+    "jade": "^1.4.2",
+    "minimist": "^0.1.0",
+    "mkdirp": "^0.5.0",
     "nodemon": "^1.2.0",
     "tap": "^0.4.11",
     "tape": "^2.13.2",
-    "highlight.js": "^8.1.0",
-    "async": "^0.9.0",
-    "yuidocjs": "git://github.com/timjchin/yuidoc.git#master",
-    "jade": "^1.4.2",
-    "mkdirp": "^0.5.0"
+    "wrench": "^1.5.8",
+    "yuidocjs": "git://github.com/timjchin/yuidoc.git#master"
   },
   "bin": {
     "famousdocs": "bin/cmd.js"
