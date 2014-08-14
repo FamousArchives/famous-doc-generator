@@ -70,12 +70,14 @@ mixin methodName(name, params, access, static, deprecated)
 
 mixin otherClasses(classes)
   ul.mar-20
-    each detail, name in classes
-      if detail.access !== 'protected'
-        li
-          -var href = name + '.html'
-          a(href='#{href}')
-            =name
+    each module in classes
+      li= module.name
+      each detail in module.data
+        if detail.access !== 'protected'
+          li
+            -var href = detail.path + '.html'
+            a(href='/#{href}')
+              =detail.key
 
 mixin eventBlock(name, events, id)
   h5.medium-grey.miniSpacer.col1= name
