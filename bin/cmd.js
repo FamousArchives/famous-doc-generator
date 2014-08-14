@@ -6,7 +6,7 @@ var docGenerator = require('../lib');
 var filters = require('../lib/filters');
 var path = require('path');
 
-if (argv._.indexOf('help') > 0 || argv.h == true || argv.help == true) {
+if (argv._.indexOf('help') > 0 || argv.h == true || argv.help == true || (argv._.length == 0 && Object.keys(argv).length == 1)) {
   console.log('Famous Documentation Generator');
   console.log('----------------');
   console.log('Possible options');
