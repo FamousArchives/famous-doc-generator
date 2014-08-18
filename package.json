@@ -1,5 +1,5 @@
 {
-  "name": "Doc-Complier",
+  "name": "famous-doc-complier",
   "version": "0.0.0",
   "description": "Documentation generator.",
   "main": "lib/index.js",
