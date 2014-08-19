@@ -10,17 +10,17 @@ mixin parameter(param)
       .col1-3= param.description
       // todo: .col1-3= param.optional
 
-mixin methods(method)
+mixin methods(method, pathPrefix)
   if method.access == 'private'
     .col1.method-block.spacer-bar.miniSpacer.private-method.hidden
-      +method(method)
+      +method(method, pathPrefix)
   else
     .col1.method-block.spacer-bar.miniSpacer
-      +method(method)
+      +method(method, pathPrefix)
 
-mixin method(method)
+mixin method(method, pathPrefix)
   .method-item
-    +methodName(method.name, method.params, method.access, method.static, method.deprecated)
+    +methodName(method.name, method.params, pathPrefix, method.access, method.static, method.deprecated)
 
     p= method.description
 
@@ -42,13 +42,13 @@ mixin returnBlock(returns)
     .col2-3= returns.description
 
 
-mixin directLink(name)
+mixin directLink(name, pathPrefix)
   a.relative(href="##{name}")
-    img.absolute.anchor(src="/images/link_white.svg" width="15")
+    img.absolute.anchor(src="#{pathPrefix}/images/link_white.svg" width="15")
 
-mixin methodName(name, params, access, static, deprecated)
+mixin methodName(name, params, pathPrefix, access, static, deprecated)
   .col1.linkable
-    +directLink(name)
+    +directLink(name, pathPrefix)
     h4.mar-t1.left(id="#{name}")=name
       if params
         |  (
@@ -86,12 +86,12 @@ mixin otherClasses(classes, pathPrefix)
               a(href='#{pathPrefix}#{href}')
                 =detail.key
 
-mixin eventBlock(name, events, id)
+mixin eventBlock(name, events, id, pathPrefix)
   h5.medium-grey.miniSpacer.col1= name
   each event in events
     .col1.event-block.miniSpacer(id="#{id + event.name}")
       p.col1 
-        +methodName(event.name, event.params)
+        +methodName(event.name, event.params, pathPrefix)
       each val in event.params
         +parameter(val)
 
@@ -101,8 +101,8 @@ mixin titleBlock(title)
 mixin titleBlockHalf(title)
   h5.medium-grey.miniSpacer.col1-2= title
 
-mixin constructorBlock(name, params)
-  +methodName( name, params )
+mixin constructorBlock(name, params, pathPrefix )
+  +methodName( name, params, pathPrefix )
   +titleBlock("Constructor Parameters")
   .col1.spacer-bar.mar-b
     each val in params
@@ -206,18 +206,18 @@ html
                   +quickNav(params, classitems, events, eventInputs, eventOutputs, css)
 
                   if params
-                    +constructorBlock(name, params, is_singleton, is_factory)
+                    +constructorBlock(name, params, pathPrefix, is_singleton, is_factory)
 
                   if events.length || eventInputs.length || eventOutputs.length
                     .col1.spacer-bar.mar-b
                       if events.length
-                        +eventBlock("Events", events, 'event')
+                        +eventBlock("Events", events, 'event', pathPrefix)
 
                       if eventInputs.length
-                        +eventBlock("Event Input", eventInputs, 'eventInputs')
+                        +eventBlock("Event Input", eventInputs, 'eventInputs', pathPrefix)
 
                       if eventOutputs.length
-                        +eventBlock("Event Output", eventOutputs, 'eventOutputs')
+                        +eventBlock("Event Output", eventOutputs, 'eventOutputs', pathPrefix)
 
                   if css
                     +cssBlock(css)
@@ -228,7 +228,7 @@ html
                       label.right(for="input-private") Show Private Methods
                       input.right.down5(type="checkbox" id="input-private" data-type="private")
                     each method in classitems
-                      +methods(method)
+                      +methods(method, pathPrefix)
 
                   if example
                     +exampleBlock(example)
