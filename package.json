@@ -32,7 +32,7 @@
     "yuidocjs": "git://github.com/timjchin/yuidoc.git#master"
   },
   "bin": {
-    "famousdocs": "bin/cmd.js"
+    "famous-doc-generator": "bin/cmd.js"
   },
   "preferGlobal": "true",
   "directories": {
