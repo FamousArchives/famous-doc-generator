@@ -76,7 +76,7 @@ mixin otherClasses(classes)
         if detail.access !== 'protected'
           li
             -var href = detail.path + '.html'
-            a(href='/#{href}')
+            a(href='#{href}')
               =detail.key
 
 mixin eventBlock(name, events, id)
