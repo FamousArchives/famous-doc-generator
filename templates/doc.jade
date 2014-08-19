@@ -142,7 +142,7 @@ mixin quickNav(params, classitems, events, eventInputs, eventOutputs, css)
         .col1-3
           h5 Methods
           for method in classitems
-            if method.access !== 'private' && method.acess !== 'protected'
+            if (method.access !== 'private' && method.access !== 'protected')
               a.col1(href="##{method.name}")= method.name
 
       if events.length || eventInputs.length || eventOutputs.length
