@@ -1,11 +1,11 @@
 {
-  "name": "famous-doc-complier",
-  "version": "0.0.0",
+  "name": "famous-doc-generator",
+  "version": "0.1.0",
   "description": "Documentation generator.",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Famous/widget-slider.git"
+    "url": "git://github.com/Famous/famous-doc-generator.git"
   },
   "scripts": {
     "test": "npm run-script lint; ./node_modules/.bin/tap test/*.js",
