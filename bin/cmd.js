@@ -15,6 +15,7 @@ if (argv._.indexOf('help') > 0 || argv.h == true || argv.help == true || (argv._
   console.log('--out=[path] The directory where the compiled templates will write to.');
   console.log('--ignore=[paths **OPTIONAL**] Add a directory nested underneath the base directory to ignore.');
   console.log('--outData=[path **OPTIONAL**] Path where the json data will be saved. Useful to debug templates');
+  console.log('--pathPrefix=[path **OPTIONAL**] All asset pathing will get this prefix.');
   process.exit(0);
 }
 
@@ -26,11 +27,16 @@ var opts = {
       outDirectory: path.join(process.cwd(), argv.out)
     }
   ],
-  filters: filters 
+  filters: filters,
+  pathPrefix: ''
 }
 
-if (argv.outData) { 
+if (argv.outData) {
   opts.outData = argv.outData;
+}
+
+if (argv.pathPrefix) { 
+  opts.pathPrefix = argv.pathPrefix;
 }
 
 if (argv.ignore) {

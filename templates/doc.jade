@@ -68,7 +68,7 @@ mixin methodName(name, params, access, static, deprecated)
         small.mar-l-20.red.medium-grey-bg.pad-5.up3.bor-2 Deprecated
 
 
-mixin otherClasses(classes)
+mixin otherClasses(classes, pathPrefix)
   ul.mar-20
     each module in classes
       li= module.name
@@ -76,7 +76,7 @@ mixin otherClasses(classes)
         if detail.access !== 'protected'
           li
             -var href = detail.path + '.html'
-            a(href='#{href}')
+            a(href='#{pathPrefix}#{href}')
               =detail.key
 
 mixin eventBlock(name, events, id)
@@ -180,15 +180,14 @@ html
     meta(name='apple-mobile-web-app-capable', content='yes')
     meta(name='apple-mobile-web-app-status-bar-style', content='black')
     meta(name='viewport', content='width=device-width')
-    link(rel='icon', type='image/png', href='/favicon.png')
-    link(rel='stylesheet', href='/css/famous_styles.css')
+    link(rel='icon', type='image/png', href='#{pathPrefix}/favicon.png')
+    link(rel='stylesheet', href='#{pathPrefix}/css/famous_styles.css')
   body
-    //include ./header
     #doc-container.col1
       .col1.navigation-margin.relative.pad20
         .col1
           .col1-4
-            +otherClasses(classes)
+            +otherClasses(classes, pathPrefix)
           .col1-2
             #docs-container.cf.docs.col1.pad-g1.main
               .col1.pad-ls-g1.pad-t1
