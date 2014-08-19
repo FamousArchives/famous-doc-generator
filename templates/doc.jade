@@ -11,7 +11,7 @@ mixin parameter(param)
       // todo: .col1-3= param.optional
 
 mixin methods(method, pathPrefix)
-  if method.access == 'private'
+  if method.access == 'private' || method.access == 'protected'
     .col1.method-block.spacer-bar.miniSpacer.private-method.hidden
       +method(method, pathPrefix)
   else
@@ -40,7 +40,6 @@ mixin returnBlock(returns)
   col1.miniSpacer
     .col1-3.red= returns.type
     .col2-3= returns.description
-
 
 mixin directLink(name, pathPrefix)
   a.relative(href="##{name}")
@@ -143,7 +142,7 @@ mixin quickNav(params, classitems, events, eventInputs, eventOutputs, css)
         .col1-3
           h5 Methods
           for method in classitems
-            if (method.access !== 'private')
+            if method.access !== 'private' && method.acess !== 'protected'
               a.col1(href="##{method.name}")= method.name
 
       if events.length || eventInputs.length || eventOutputs.length
@@ -190,6 +189,8 @@ html
     link(rel='icon', type='image/png', href='#{pathPrefix}/favicon.png')
     link(rel='stylesheet', href='#{pathPrefix}/css/famous_styles.css')
   body
+    if header
+      !{header}
     #doc-container.col1
       .col1.navigation-margin.relative.pad20
         .col1
@@ -232,7 +233,8 @@ html
 
                   if example
                     +exampleBlock(example)
-
+    if footer
+      !{footer}
   script.
     var input = document.getElementById('input-private');
     var elements = Array.prototype.slice.call(document.getElementsByClassName('private-method'));
