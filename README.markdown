@@ -12,10 +12,13 @@ RUNNING
 =================
 ```js
 famousdocs 
-  --base=[path] The directory to start searching from, relative.
-  --out=[path] The directory where the compiled templates will write to
+  --base=[path] The directory to start searching from
+  --out=[path] The directory where the compiled templates will write to.
+  --ignore=[paths **OPTIONAL**] Add a directory nested underneath the base directory to ignore.
   --outData=[path **OPTIONAL**] Path where the json data will be saved. Useful to debug templates
-  --ignore=[path] Ignore a directory.
+  --pathPrefix=[path **OPTIONAL**] All asset pathing will get this prefix.
+  --headerTemplate=[path **OPTIONAL**] Header partial to include.
+  --footerTemplate=[path **OPTIONAL**] Footer partial to include.
 ```
 
 Ignoring multiple directories
