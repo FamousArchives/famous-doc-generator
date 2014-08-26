@@ -48,12 +48,14 @@ mixin directLink(name, pathPrefix)
 mixin methodName(name, params, pathPrefix, access, static, deprecated)
   .col1.linkable
     +directLink(name, pathPrefix)
-    h4.mar-t1.left(id="#{name}")=name
+    h3.mar-t1.left(id="#{name}")=name
       if params
-        |  (
+        | (
         - for (var i = 0; i < params.length; i++)
           - var param = (i == params.length - 1) ? params[i].name + ')' : params[i].name + ', ';
             = param
+      else
+        | ()
       if (access == 'private')
         small.mar-l-20.medium-grey-bg.pad-5.up3.bor-2 Private
 
