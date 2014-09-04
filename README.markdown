@@ -19,6 +19,7 @@ famousdocs
   --pathPrefix=[path **OPTIONAL**] All asset pathing will get this prefix.
   --headerTemplate=[path **OPTIONAL**] Header partial to include.
   --footerTemplate=[path **OPTIONAL**] Footer partial to include.
+  --template=[path **OPTIONAL**] Path to a complete custom template. This template will be run against every file found.
 ```
 
 Ignoring multiple directories
