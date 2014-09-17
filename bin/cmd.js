@@ -6,7 +6,7 @@ var docGenerator = require('../lib');
 var filters = require('../lib/filters');
 var path = require('path');
 
-if (argv._.indexOf('help') > 0 || argv.h == true || argv.help == true || (argv._.length == 0 && Object.keys(argv).length == 1)) {
+if (argv._.indexOf('help') > 0 || argv.h === true || argv.help === true || (argv._.length === 0 && Object.keys(argv).length === 1)) {
   console.log('Famous Documentation Generator');
   console.log('----------------');
   console.log('Possible options');
@@ -26,15 +26,15 @@ var opts = {
   baseDirectory: path.join(process.cwd(), argv.base),
   templates: [
     {
-      baseTemplate: argv.template ? 
-          path.join(process.cwd(), argv.template) : 
+      baseTemplate: argv.template ?
+          path.join(process.cwd(), argv.template) :
           path.join(__dirname, '../templates/doc.jade'),
       outDirectory: path.join(process.cwd(), argv.out)
     }
   ],
   filters: filters,
   pathPrefix: ''
-}
+};
 
 if (argv.outData) {
   opts.outData = argv.outData;
@@ -60,10 +60,13 @@ if (argv.ignore) {
   else {
     opts.ignoreDirectories = argv.ignore;
   }
-} else opts.ignoreDirectories = [];
-opts.ignoreDirectories.push('.git');
+}
+else {
+  opts.ignoreDirectories = [];
+}
 
+opts.ignoreDirectories.push('.git');
 
 docGenerator(opts, function () {
   console.log('documentation is generated.');
-})
+});
