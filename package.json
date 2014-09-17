@@ -8,9 +8,9 @@
     "url": "git://github.com/Famous/famous-doc-generator.git"
   },
   "scripts": {
-    "test": "npm run-script lint; ./node_modules/.bin/tap test/*.js",
-    "watch": "./node_modules/.bin/nodemon --ignore node_modules/ -e js,json --exec 'npm test'",
-    "lint": "./node_modules/.bin/eslint **/*.js"
+    "test": "npm run-script lint; tap test/*.js",
+    "watch": "nodemon --ignore node_modules/ -e js,json --exec 'npm test'",
+    "lint": "eslint **/*.js"
   },
   "author": "Tim Chin <tim@famo.us>",
   "license": "MPLv2",
