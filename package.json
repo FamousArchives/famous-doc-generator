@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Famous/widget-slider",
   "dependencies": {
     "async": "^0.9.0",
+    "findit": "^2.0.0",
     "highlight.js": "^8.1.0",
     "jade": "^1.4.2",
     "minimist": "^1.1.0",
