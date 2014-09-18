@@ -12,7 +12,7 @@ var outPath = path.join(process.env.TMPDIR, 'famous-doc-generator', 'test-copyAs
 var inPath = path.join(__dirname, '../templates/doc.jade');
 var assetsPath = path.join(__dirname, '../lib/assets');
 
-test('setup', function (t) {
+test('setup copyAssets', function (t) {
   t.plan(1);
   mkdirp.sync(outPath);
   fs.exists(outPath, function (exists) {
@@ -20,7 +20,7 @@ test('setup', function (t) {
   });
 });
 
-test('Make sure it loads', function (t) {
+test('Make sure copyAssets loads', function (t) {
   t.ok(copyAssets, 'copyAssets should exist after being required');
   t.end();
 });
@@ -39,7 +39,7 @@ test('Make sure copyAssets actually copies those assets', function (t) {
   });
 });
 
-test('teardown', function (t) {
+test('teardown copyAssets', function (t) {
   t.plan(1);
   rimraf.sync(outPath);
   fs.exists(outPath, function (exists) {
