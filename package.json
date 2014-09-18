@@ -8,7 +8,7 @@
     "url": "git://github.com/Famous/famous-doc-generator.git"
   },
   "scripts": {
-    "test": "npm run-script lint; tap test/*.js",
+    "test": "npm run-script lint; tape test/*.js | tap-spec",
     "watch": "nodemon --ignore node_modules/ -e js,json --exec 'npm test'",
     "lint": "eslint **/*.js"
   },
@@ -20,15 +20,11 @@
   "homepage": "https://github.com/Famous/widget-slider",
   "dependencies": {
     "async": "^0.9.0",
-    "eslint": "^0.8.1",
     "highlight.js": "^8.1.0",
     "jade": "^1.4.2",
     "minimist": "^1.1.0",
     "mkdirp": "^0.5.0",
     "ncp": "^0.6.0",
-    "nodemon": "^1.2.0",
-    "tap": "^0.4.12",
-    "tape": "^3.0.0",
     "yuidocjs": "^0.3.50"
   },
   "bin": {
@@ -43,5 +39,13 @@
   "engines": {
     "node": ">=0.10.28",
     "npm": ">=1.4.10"
+  },
+  "devDependencies": {
+    "eslint": "^0.8.1",
+    "nodemon": "^1.2.0",
+    "rimraf": "^2.2.8",
+    "tap-spec": "^1.0.0",
+    "tap": "^0.4.12",
+    "tape": "^3.0.0"
   }
 }
