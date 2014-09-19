@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - '0.10'
+before_install:
+  - currentfolder=${PWD##*/}
+  - if [ "$currentfolder" != 'famous-doc-builder' ]; then cd .. && eval "mv $currentfolder famous-doc-builder" && cd core; fi
+
+notifications:
+  email:
+    - myles@famo.us
+    - tim@famo.us
