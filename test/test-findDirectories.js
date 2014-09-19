@@ -20,6 +20,6 @@ test('findDirectories should return a list of directories in a folder', function
       path.join(fixtures, 'foo/baz')
     ];
     t.notok(err, 'findDirectories should execute callback without an error');
-    t.deepEqual(list, expected, 'It should return the expected list');
+    t.deepEqual(list.sort(), expected.sort(), 'It should return the expected list');
   });
 });
