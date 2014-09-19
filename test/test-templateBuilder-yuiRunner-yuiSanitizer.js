@@ -11,7 +11,7 @@ var yuiRunner = require('../lib/yuiRunner');
 var yuiSanitizer = require('../lib/yuiSanitizer');
 
 var inPath = path.join(__dirname, 'fixtures');
-var outPath = path.join(process.env.TMPDIR, 'famous-doc-generator', 'test-templateBuilder');
+var outPath = path.join(process.env.TMPDIR || __dirname, 'famous-doc-generator', 'test-templateBuilder');
 var templatePath = path.join(__dirname, '../templates/doc.jade');
 
 test('setup templateBuilder / yuiSanitizer / yuiRunner', function (t) {

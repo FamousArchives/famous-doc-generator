@@ -8,7 +8,7 @@ var mkdirp = require('mkdirp');
 
 var copyAssets = require('../lib/copyAssets');
 
-var outPath = path.join(process.env.TMPDIR, 'famous-doc-generator', 'test-copyAssets');
+var outPath = path.join(process.env.TMPDIR || __dirname, 'famous-doc-generator', 'test-copyAssets');
 var inPath = path.join(__dirname, '../templates/doc.jade');
 var assetsPath = path.join(__dirname, '../lib/assets');
 
