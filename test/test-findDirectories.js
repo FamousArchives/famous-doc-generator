@@ -15,6 +15,7 @@ test('findDirectories should return a list of directories in a folder', function
   t.plan(2);
   findDirectories(fixtures, function (err, list) {
     var expected = [
+      fixtures,
       path.join(fixtures, 'foo'),
       path.join(fixtures, 'foo/bar'),
       path.join(fixtures, 'foo/baz')
