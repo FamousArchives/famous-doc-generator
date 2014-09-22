@@ -1,6 +1,6 @@
 {
   "name": "famous-doc-generator",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Documentation generator.",
   "main": "lib/index.js",
   "repository": {
