@@ -1,10 +1,16 @@
 
 INSTALLATION
 =================
+```
+npm install famous-doc-generator
+```
+
+or if you would like to install from source
+
 ```js
-git clone git@github.com:FamousInternal/doc-generator.git
+git clone git@github.com:Famous/famous-doc-generator.git
 cd doc-generator
-npm install -g
+npm link
 ```
 
 
