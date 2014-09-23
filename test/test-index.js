@@ -38,6 +38,7 @@ test('Make sure docBuilder actually builds docs', function (t) {
   t.plan(2);
   var options = {
     baseDirectory: inPath,
+    outPath: outPath,
     templates: [{
       outDirectory: outPath,
       baseTemplate: templatePath
@@ -46,7 +47,7 @@ test('Make sure docBuilder actually builds docs', function (t) {
   docBuilder(options, function (err) {
     t.notok(err, 'docBuilder should run without an error');
     var dir = fs.readdirSync(outPath);
-    t.deepEqual(dir, [ 'Entity.html', 'css', 'images' ], 'We should have the expected output stat from the build directory');
+    t.deepEqual(dir, [ 'Entity.html', 'css', 'images' ], 'We should have the expected output stat from the html build directory');
   });
 });
 
@@ -54,7 +55,8 @@ test('Make sure docBuilder actually builds docs', function (t) {
   t.plan(2);
   var options = {
     baseDirectory: inPath,
-    markdownPath: markdownPath,
+    outPath: markdownPath,
+    markdown: true,
     templates: [{
       outDirectory: outPath,
       baseTemplate: templatePath
@@ -63,7 +65,7 @@ test('Make sure docBuilder actually builds docs', function (t) {
   docBuilder(options, function (err) {
     t.notok(err, 'docBuilder should run without an error');
     var dir = fs.readdirSync(markdownPath);
-    t.deepEqual(dir, ['Entity.md'], 'We should have the expected output stat from the build directory');
+    t.deepEqual(dir, ['Entity.md'], 'We should have the expected output stat from the markdown build directory');
   });
 });
 

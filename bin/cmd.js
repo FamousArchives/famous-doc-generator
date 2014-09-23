@@ -24,12 +24,13 @@ if (argv._.indexOf('help') > 0 || argv.h === true || argv.help === true || (argv
   console.log('--template=[path **OPTIONAL**] Path to a complete custom template. This template will be run against every file found.');
   console.log('--headerTemplate=[path **OPTIONAL**] Header partial to include.');
   console.log('--footerTemplate=[path **OPTIONAL**] Footer partial to include.');
-  console.log('--markdownPath=[path **OPTIONAL**] Output markdown in addition to html templates, at this path.');
+  console.log('--markdown [**OPTIONAL**] Output markdown instead of html.');
   process.exit(0);
 }
 
 var opts = {
   baseDirectory: path.join(process.cwd(), argv.base),
+  outPath: path.join(process.cwd(), argv.out),
   templates: [
     {
       baseTemplate: argv.template ?
@@ -58,9 +59,7 @@ if (argv.footerTemplate) {
   opts.footerTemplate = path.join(process.cwd(), argv.footerTemplate);
 }
 
-if (argv.markdownPath) {
-  opts.markdownPath = path.join(process.cwd(), argv.markdownPath);
-}
+opts.markdown = argv.markdown;
 
 if (argv.ignore) {
   if (!(argv.ignore instanceof Array)) {

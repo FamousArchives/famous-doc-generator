@@ -26,6 +26,7 @@ famousdocs
   --headerTemplate=[path **OPTIONAL**] Header partial to include.
   --footerTemplate=[path **OPTIONAL**] Footer partial to include.
   --template=[path **OPTIONAL**] Path to a complete custom template. This template will be run against every file found.
+  --markdown [**OPTIONAL**] Output markdown instead of html.
 ```
 
 Ignoring multiple directories
