@@ -13,14 +13,19 @@ var mkdirp = require('mkdirp');
 var docBuilder = require('../lib');
 
 var inPath = path.join(__dirname, 'fixtures');
-var outPath = path.join(process.env.TMPDIR || __dirname, 'famous-doc-generator', 'test-templateBuilder');
+var outPath = path.join(process.env.TMPDIR || __dirname, 'famous-doc-generator', 'test-templateBuilder-html');
+var markdownPath = path.join(process.env.TMPDIR || __dirname, 'famous-doc-generator', 'test-templateBuilder-markdown');
 var templatePath = path.join(__dirname, '../templates/doc.jade');
 
 test('setup docBuilder', function (t) {
-  t.plan(1);
+  t.plan(2);
   mkdirp.sync(outPath);
+  mkdirp.sync(markdownPath);
   fs.exists(outPath, function (exists) {
-    t.ok(exists, 'The output path folder should have been created in $TMPDIR');
+    t.ok(exists, 'The output html folder should have been created in $TMPDIR');
+  });
+  fs.exists(markdownPath, function (exists) {
+    t.ok(exists, 'The output markdown folder should have been created in $TMPDIR');
   });
 });
 
@@ -45,10 +50,31 @@ test('Make sure docBuilder actually builds docs', function (t) {
   });
 });
 
+test('Make sure docBuilder actually builds docs', function (t) {
+  t.plan(2);
+  var options = {
+    baseDirectory: inPath,
+    markdownPath: markdownPath,
+    templates: [{
+      outDirectory: outPath,
+      baseTemplate: templatePath
+    }]
+  };
+  docBuilder(options, function (err) {
+    t.notok(err, 'docBuilder should run without an error');
+    var dir = fs.readdirSync(markdownPath);
+    t.deepEqual(dir, ['Entity.md'], 'We should have the expected output stat from the build directory');
+  });
+});
+
 test('teardown docBuilder', function (t) {
-  t.plan(1);
+  t.plan(2);
   rimraf.sync(outPath);
+  rimraf.sync(markdownPath);
   fs.exists(outPath, function (exists) {
-    t.notok(exists, 'The output path folder should have been destroyed');
+    t.notok(exists, 'The output html folder should have been destroyed');
+  });
+  fs.exists(markdownPath, function (exists) {
+    t.notok(exists, 'The output markdown folder should have been destroyed');
   });
 });
