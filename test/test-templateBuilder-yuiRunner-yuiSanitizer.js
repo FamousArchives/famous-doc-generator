@@ -42,7 +42,7 @@ test('Make sure templateBuilder actually builds templates', function (t) {
   };
   yuiRunner(options, function(json) {
     t.equal(typeof json, 'object', 'yuiRunner should return a valid object');
-    yuiSanitizer(json);
+    yuiSanitizer(options, json);
     t.equal(typeof json, 'object', 'yuiSanitizer should return a valid object');
 
     templateBuilder(options, json, function (err) {
