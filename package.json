@@ -26,6 +26,7 @@
     "minimist": "^1.1.0",
     "mkdirp": "^0.5.0",
     "ncp": "^0.6.0",
+    "underscore": "^1.7.0",
     "yuidocjs": "^0.3.50"
   },
   "bin": {
