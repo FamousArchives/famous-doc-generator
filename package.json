@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Famous/famous-doc-generator.git"
+    "url": "git://github.com/FamousTools/famous-doc-generator.git"
   },
   "scripts": {
     "test": "npm run-script lint && tape test/*.js | tap-spec",
@@ -15,9 +15,9 @@
   "author": "Tim Chin <tim@famo.us>",
   "license": "MPLv2",
   "bugs": {
-    "url": "https://github.com/Famous/famous-doc-generator/issues"
+    "url": "https://github.com/FamousTools/famous-doc-generator/issues"
   },
-  "homepage": "https://github.com/Famous/famous-doc-generator",
+  "homepage": "https://github.com/FamousTools/famous-doc-generator",
   "dependencies": {
     "async": "^0.9.0",
     "findit": "^2.0.0",
@@ -46,7 +46,7 @@
     "eslint": "^0.8.2",
     "nodemon": "^1.2.0",
     "rimraf": "^2.2.8",
-    "tap": "^0.4.12",
+    "tap": "^0.4.13",
     "tap-spec": "^1.0.0",
     "tape": "^3.0.0"
   }
