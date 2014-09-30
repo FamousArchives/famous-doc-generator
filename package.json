@@ -8,7 +8,7 @@
     "url": "git://github.com/Famous/famous-doc-generator.git"
   },
   "scripts": {
-    "test": "npm run-script lint; tape test/*.js | tap-spec",
+    "test": "npm run-script lint && tape test/*.js | tap-spec",
     "watch": "nodemon --ignore node_modules/ -e js,json --exec 'npm test'",
     "lint": "eslint **/*.js"
   },
@@ -26,7 +26,7 @@
     "lodash": "^2.4.1",
     "minimist": "^1.1.0",
     "mkdirp": "^0.5.0",
-    "ncp": "^0.6.0",
+    "ncp": "^1.0.0",
     "yuidocjs": "^0.3.50"
   },
   "bin": {
