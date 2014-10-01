@@ -32,7 +32,6 @@
   "bin": {
     "famous-doc-generator": "bin/cmd.js"
   },
-  "preferGlobal": "true",
   "directories": {
     "bin": "./bin",
     "lib": "./lib",
