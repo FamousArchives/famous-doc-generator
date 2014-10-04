@@ -1,7 +1,7 @@
 #Famous-doc-generator
 
 
-[![Build Status](https://travis-ci.org/Famous/famous-doc-generator.svg?branch=master)](https://travis-ci.org/Famous/famous-doc-generator) [![Dependency Status](https://david-dm.org/Famous/famous-doc-generator.svg)](https://david-dm.org/Famous/famous-doc-generator) [![devDependency Status](https://david-dm.org/Famous/famous-doc-generator/dev-status.svg)](https://david-dm.org/Famous/famous-doc-generator#info=devDependencies)
+[![Build Status](https://travis-ci.org/FamousTools/famous-doc-generator.svg?branch=master)](https://travis-ci.org/FamousTools/famous-doc-generator) [![Dependency Status](https://david-dm.org/FamousTools/famous-doc-generator.svg)](https://david-dm.org/FamousTools/famous-doc-generator) [![devDependency Status](https://david-dm.org/FamousTools/famous-doc-generator/dev-status.svg)](https://david-dm.org/FamousTools/famous-doc-generator#info=devDependencies)
 
 
 INSTALLATION
