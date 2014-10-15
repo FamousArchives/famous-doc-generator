@@ -5,6 +5,7 @@
 'use strict';
 var path = require('path');
 var fs = require('fs');
+var os = require('os');
 
 var test = require('tape');
 var rimraf = require('rimraf');
@@ -13,8 +14,8 @@ var mkdirp = require('mkdirp');
 var docBuilder = require('../lib');
 
 var inPath = path.join(__dirname, 'fixtures');
-var outPath = path.join(process.env.TMPDIR || __dirname, 'famous-doc-generator', 'test-templateBuilder-html');
-var markdownPath = path.join(process.env.TMPDIR || __dirname, 'famous-doc-generator', 'test-templateBuilder-markdown');
+var outPath = path.join(os.tmpdir(), 'famous-doc-generator', 'test-templateBuilder-html');
+var markdownPath = path.join(os.tmpdir(), 'famous-doc-generator', 'test-templateBuilder-markdown');
 var templatePath = path.join(__dirname, '../templates/doc.jade');
 
 test('setup docBuilder', function (t) {

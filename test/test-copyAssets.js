@@ -5,6 +5,7 @@
 'use strict';
 var path = require('path');
 var fs = require('fs');
+var os = require('os');
 
 var test = require('tape');
 var rimraf = require('rimraf');
@@ -12,7 +13,7 @@ var mkdirp = require('mkdirp');
 
 var copyAssets = require('../lib/copyAssets');
 
-var outPath = path.join(process.env.TMPDIR || __dirname, 'famous-doc-generator', 'test-copyAssets');
+var outPath = path.join(os.tmpdir(), 'famous-doc-generator', 'test-copyAssets');
 var inPath = path.join(__dirname, '../templates/doc.jade');
 var assetsPath = path.join(__dirname, '../lib/assets');
 
