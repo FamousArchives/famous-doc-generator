@@ -49,7 +49,7 @@ test('Make sure templateBuilder actually builds templates', function (t) {
     templateBuilder(options, json, function (err) {
       t.notok(err, 'templateBuilder should finish without an error');
       var dirs = fs.readdirSync(outPath);
-      t.deepEqual(dirs, ['Entity.html'], 'templateBuilder should create an Entity.html file');
+      t.deepEqual(dirs, ['Entity.html', 'physics'], 'templateBuilder should create an Entity.html file');
     });
   });
 });

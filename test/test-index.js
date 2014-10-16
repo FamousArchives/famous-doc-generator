@@ -36,7 +36,7 @@ test('Make sure docBuilder loads', function (t) {
 });
 
 test('Make sure docBuilder actually builds docs', function (t) {
-  t.plan(2);
+  t.plan(4);
   var options = {
     baseDirectory: inPath,
     outPath: outPath,
@@ -48,7 +48,11 @@ test('Make sure docBuilder actually builds docs', function (t) {
   docBuilder(options, function (err) {
     t.notok(err, 'docBuilder should run without an error');
     var dir = fs.readdirSync(outPath);
-    t.deepEqual(dir, [ 'Entity.html', 'css', 'images' ], 'We should have the expected output stat from the html build directory');
+    var physicsDir = fs.readdirSync(path.join(outPath, 'physics'));
+    var integratorsDir = fs.readdirSync(path.join(outPath, 'physics', 'integrators'));
+    t.deepEqual(dir, [ 'Entity.html', 'css', 'images', 'physics'], 'We should have the expected output stat from the main build directory');
+    t.deepEqual(physicsDir, [ 'PhysicsEngine.html', 'integrators'], 'We should have the expected output stat from the physics build directory');
+    t.deepEqual(integratorsDir, [ 'SymplecticEuler.html'], 'We should have the expected output stat from the physics build directory');
   });
 });
 
@@ -66,7 +70,7 @@ test('Make sure docBuilder actually builds docs', function (t) {
   docBuilder(options, function (err) {
     t.notok(err, 'docBuilder should run without an error');
     var dir = fs.readdirSync(markdownPath);
-    t.deepEqual(dir, ['Entity.md'], 'We should have the expected output stat from the markdown build directory');
+    t.deepEqual(dir, ['Entity.md', 'physics'], 'We should have the expected output stat from the markdown build directory');
   });
 });
 
