@@ -61,3 +61,34 @@ test('teardown templateBuilder / yuiSanitizer / yuiRunner', function (t) {
     t.notok(exists, 'The output path folder should have been destroyed');
   });
 });
+
+test('Make sure templateBuilder creates an index.html page', function (t) {
+  t.plan(4);
+  var options = {
+    baseDirectory: inPath,
+    templates: [{
+      outDirectory: outPath,
+      baseTemplate: templatePath
+    }],
+    createIndex: true
+  };
+  yuiRunner(options, function (json) {
+    t.equal(typeof json, 'object', 'yuiRunner should return a valid object');
+    yuiSanitizer(options, json);
+    t.equal(typeof json, 'object', 'yuiSanitizer should return a valid object');
+
+    templateBuilder(options, json, function (err) {
+      t.notok(err, 'templateBuilder should finish without an error');
+      var dirs = fs.readdirSync(outPath);
+      t.deepEqual(dirs, ['Entity.html', 'index.html', 'physics'], 'templateBuilder should create an index.html file');
+    });
+  });
+});
+
+test('teardown templateBuilder / yuiSanitizer / yuiRunner', function (t) {
+  t.plan(1);
+  rimraf.sync(outPath);
+  fs.exists(outPath, function (exists) {
+    t.notok(exists, 'The output path folder should have been destroyed');
+  });
+});
