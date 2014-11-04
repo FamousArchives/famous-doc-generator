@@ -241,8 +241,10 @@ html
   script.
     var input = document.getElementById('input-private');
     var elements = Array.prototype.slice.call(document.getElementsByClassName('private-method'));
-    input.onclick = function() {
-      setElementsVisible();
+    if (input) {
+      input.onclick = function() {
+        setElementsVisible();
+      }
     }
     function setElementsVisible () {
       for (var i=0; i<elements.length; i++) {
