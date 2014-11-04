@@ -30,8 +30,8 @@ if (argv._.indexOf('help') > 0 || argv.h === true || argv.help === true || (argv
 }
 
 var opts = {
-  baseDirectory: path.join(process.cwd(), argv.base),
-  outPath: path.join(process.cwd(), argv.out),
+  baseDirectory: path.join(process.cwd(), argv.base.replace(/\/$/g, '')),
+  outPath: path.join(process.cwd(), argv.out.replace(/\/$/g, '')),
   templates: [
     {
       baseTemplate: argv.template ?
