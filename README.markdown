@@ -32,6 +32,7 @@ famous-doc-generator
   --footerTemplate=[path **OPTIONAL**] Footer partial to include.
   --template=[path **OPTIONAL**] Path to a complete custom template. This template will be run against every file found.
   --markdown [**OPTIONAL**] Output markdown instead of html.
+  --createIndex [**OPTIONAL**] Create an index.html file in the root of the output directory.
 ```
 
 Ignoring multiple directories
