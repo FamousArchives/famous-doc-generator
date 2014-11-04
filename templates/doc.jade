@@ -76,7 +76,7 @@ mixin otherClasses(classes, pathPrefix)
       - for (var klass in module.data) {
       -   if (module.data[klass].access !== 'protected' && module.data[klass].access !== 'private') {
       -     validClasses = true;
-      -   } 
+      -   }
       - }
       if validClasses
         li= module.name
@@ -91,7 +91,7 @@ mixin eventBlock(name, events, id, pathPrefix)
   h5.medium-grey.miniSpacer.col1= name
   each event in events
     .col1.event-block.miniSpacer(id="#{id + event.name}")
-      p.col1 
+      p.col1
         +methodName(event.name, event.params, pathPrefix)
       each val in event.params
         +parameter(val)
