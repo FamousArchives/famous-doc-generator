@@ -22,7 +22,7 @@ npm link
 RUNNING
 =================
 ```js
-famousdocs 
+famous-doc-generator
   --base=[path] The directory to start searching from
   --out=[path] The directory where the compiled templates will write to.
   --ignore=[paths **OPTIONAL**] Add a directory nested underneath the base directory to ignore.
