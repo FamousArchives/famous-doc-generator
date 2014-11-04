@@ -630,3 +630,6 @@ pre {
 .anchor {
   top: 5px;
 }
+.sidebar.nav li a {
+  margin-left: 10px;
+}

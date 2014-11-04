@@ -70,7 +70,7 @@ mixin methodName(name, params, pathPrefix, access, static, deprecated)
 
 
 mixin otherClasses(classes, pathPrefix)
-  ul.mar-20
+  ul.mar-20.sidebar.nav
     each module in classes
       - var validClasses = false;
       - for (var klass in module.data) {
