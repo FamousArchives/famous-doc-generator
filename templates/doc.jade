@@ -78,6 +78,7 @@ mixin sidebarNav(classes, pathPrefix)
       -     validClasses = true;
       -   }
       - }
+      - module.name = module.name.replace(/^\//g, '');
       if validClasses
         li= module.name
         each detail in module.data
