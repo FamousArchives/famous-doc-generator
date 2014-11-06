@@ -42,7 +42,7 @@
     "npm": ">=1.4.10"
   },
   "devDependencies": {
-    "eslint": "^0.8.2",
+    "eslint": "^0.9.2",
     "nodemon": "^1.2.0",
     "rimraf": "^2.2.8",
     "tap": "^0.4.13",
