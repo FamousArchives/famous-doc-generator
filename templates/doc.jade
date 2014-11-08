@@ -178,78 +178,76 @@ mixin cssBlock(css)
         .col1-3.red= selector.tag
         .col2-3= selector.description
 
+mixin documentHead()
+  | <!DOCTYPE html>
+  | <html>
+  | <head>
+  |   <meta charset="utf-8"/>
+  |   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  |   <meta name="description" content="A free, open source JavaScript framework for creating complex UIs for any screen. 3D layout and physics animation engines. Renders to DOM, Canvas, or WebGL"/>
+  |   <title>Famo.us</title>
+  |   <meta name="apple-mobile-web-app-capable" content="yes"/>
+  |   <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  |   <meta name="viewport" content="width=device-width"/>
+  |   <link href="http://fonts.googleapis.com/css?family=Lato&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css"/>
+  |   <link rel='icon' type='image/png' href='#{pathPrefix}/favicon.png'/>
+  |   <link rel='stylesheet' href='#{pathPrefix}/css/famous_styles.css'/>
+  | </head>
+  | <body>
 
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    meta(name='description', content='A free, open source JavaScript framework for creating complex UIs for any screen. 3D layout and physics animation engines. Renders to DOM, Canvas, or WebGL')
-    title Famo.us
-    meta(name='apple-mobile-web-app-capable', content='yes')
-    meta(name='apple-mobile-web-app-status-bar-style', content='black')
-    meta(name='viewport', content='width=device-width')
-    link(rel='icon', type='image/png', href='#{pathPrefix}/favicon.png')
-    link(href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext', rel='stylesheet', type='text/css')
-    link(rel='stylesheet', href='#{pathPrefix}/css/famous_styles.css')
-  body
-    if header
-      !{header}
-    #doc-container.col1
-      .col1.navigation-margin.relative.pad20
-        .col1
-          .col1-4
-            +sidebarNav(classes, pathPrefix)
-          .col1-2
-            #docs-container.cf.docs.col1.pad-g1.main
-              .col1.pad-ls-g1.pad-t1
-                .col1.spacer
-                  .col1.spacer-bar.mar-b
-                    h2.col1= name
-                    h6.miniSpacer= description
+mixin documentFooter()
+  | </body>
+  | </html>
 
-                  +quickNav(params, classitems, events, eventInputs, eventOutputs, css)
+unless createPartials
+  +documentHead()
+if header
+  !{header}
+#doc-container.col1
+  .col1.navigation-margin.relative.pad20
+    .col1
+      .col1-4
+        +sidebarNav(classes, pathPrefix)
+      .col1-2
+        #docs-container.cf.docs.col1.pad-g1.main
+          .col1.pad-ls-g1.pad-t1
+            .col1.spacer
+              .col1.spacer-bar.mar-b
+                h2.col1= name
+                h6.miniSpacer= description
 
-                  if params
-                    +constructorBlock(name, params, pathPrefix, is_singleton, is_factory)
+              +quickNav(params, classitems, events, eventInputs, eventOutputs, css)
 
-                  if events.length || eventInputs.length || eventOutputs.length
-                    .col1.spacer-bar.mar-b
-                      if events.length
-                        +eventBlock("Events", events, 'event', pathPrefix)
+              if params
+                +constructorBlock(name, params, pathPrefix, is_singleton, is_factory)
 
-                      if eventInputs.length
-                        +eventBlock("Event Input", eventInputs, 'eventInputs', pathPrefix)
+              if events.length || eventInputs.length || eventOutputs.length
+                .col1.spacer-bar.mar-b
+                  if events.length
+                    +eventBlock("Events", events, 'event', pathPrefix)
 
-                      if eventOutputs.length
-                        +eventBlock("Event Output", eventOutputs, 'eventOutputs', pathPrefix)
+                  if eventInputs.length
+                    +eventBlock("Event Input", eventInputs, 'eventInputs', pathPrefix)
 
-                  if css
-                    +cssBlock(css)
+                  if eventOutputs.length
+                    +eventBlock("Event Output", eventOutputs, 'eventOutputs', pathPrefix)
 
-                  if classitems.length
-                    +titleBlockHalf("Methods")
-                    .col1-2
-                      label.right(for="input-private") Show Private Methods
-                      input.right.down5(type="checkbox" id="input-private" data-type="private")
-                    each method in classitems
-                      +methods(method, pathPrefix)
+              if css
+                +cssBlock(css)
 
-                  if example
-                    +exampleBlock(example)
-    if footer
-      !{footer}
-  script.
-    var input = document.getElementById('input-private');
-    var elements = Array.prototype.slice.call(document.getElementsByClassName('private-method'));
-    if (input) {
-      input.onclick = function() {
-        setElementsVisible();
-      }
-    }
-    function setElementsVisible () {
-      for (var i=0; i<elements.length; i++) {
-        var elem = elements[i];
-        elem.classList.toggle('hidden');
-      }
-    }
+              if classitems.length
+                +titleBlockHalf("Methods")
+                .col1-2
+                  label.right(for="input-private") Show Private Methods
+                  input.right.down5(type="checkbox" id="input-private" data-type="private")
+                each method in classitems
+                  +methods(method, pathPrefix)
+
+              if example
+                +exampleBlock(example)
+if footer
+  !{footer}
+script(type='text/javascript', src='#{pathPrefix}/js/main.js')
+unless createPartials
+  +documentFooter()
+

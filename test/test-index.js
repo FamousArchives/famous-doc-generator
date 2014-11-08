@@ -50,7 +50,7 @@ test('Make sure docBuilder actually builds docs', function (t) {
     var dir = fs.readdirSync(outPath);
     var physicsDir = fs.readdirSync(path.join(outPath, 'physics'));
     var integratorsDir = fs.readdirSync(path.join(outPath, 'physics', 'integrators'));
-    t.deepEqual(dir, [ 'Entity.html', 'css', 'images', 'physics'], 'We should have the expected output stat from the main build directory');
+    t.deepEqual(dir, [ 'Entity.html', 'css', 'images', 'js', 'physics'], 'We should have the expected output stat from the main build directory');
     t.deepEqual(physicsDir, [ 'PhysicsEngine.html', 'integrators'], 'We should have the expected output stat from the physics build directory');
     t.deepEqual(integratorsDir, [ 'SymplecticEuler.html'], 'We should have the expected output stat from the physics build directory');
   });

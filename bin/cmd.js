@@ -26,6 +26,7 @@ if (argv._.indexOf('help') > 0 || argv.h === true || argv.help === true || (argv
   console.log('--footerTemplate=[path **OPTIONAL**] Footer partial to include.');
   console.log('--markdown [**OPTIONAL**] Output markdown instead of html.');
   console.log('--createIndex [**OPTIONAL**] Create an index.html file in the root of the output directory.');
+  console.log('--createPartials [**OPTIONAL**] Compile html partials to the output directory. Usefull for consumption by another templating system.');
   process.exit(0);
 }
 
@@ -61,7 +62,8 @@ if (argv.footerTemplate) {
 }
 
 opts.markdown = argv.markdown;
-opts.createIndex = argv.createIndex;
+opts.createIndex = !!argv.createIndex;
+opts.createPartials = !!argv.createPartials;
 
 if (argv.ignore) {
   if (!(argv.ignore instanceof Array)) {

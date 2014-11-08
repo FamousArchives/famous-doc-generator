@@ -33,6 +33,7 @@ famous-doc-generator
   --template=[path **OPTIONAL**] Path to a complete custom template. This template will be run against every file found.
   --markdown [**OPTIONAL**] Output markdown instead of html.
   --createIndex [**OPTIONAL**] Create an index.html file in the root of the output directory.
+  --createPartials [**OPTIONAL**] Compile html partials to the output directory. Usefull for consumption by another templating system.
 ```
 
 Ignoring multiple directories
