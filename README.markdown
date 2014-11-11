@@ -37,9 +37,9 @@ famous-doc-generator
 ```
 
 Ignoring multiple directories
-```
-famousdocs --base=./lib --ignore=./lib/famous --ignore=./lib/famous/core
 
+```shell
+famous-doc-generator --base=./lib --ignore=./lib/famous --ignore=./lib/famous/core
 ```
 
 
