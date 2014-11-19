@@ -69,7 +69,7 @@ mixin methodName(name, params, pathPrefix, access, static, deprecated)
         small.mar-l-20.red.medium-grey-bg.pad-5.up3.bor-2 Deprecated
 
 
-mixin sidebarNav(classes, pathPrefix)
+mixin sidebarNav(classes, pathPrefix, createPartials)
   ul.mar-20.sidebar.nav
     each module in classes
       - var validClasses = false;
@@ -84,7 +84,7 @@ mixin sidebarNav(classes, pathPrefix)
         each detail in module.data
           if detail.access !== 'protected'
             li
-              -var href = detail.path + '.html'
+              - var href = detail.path + (createPartials ? '/' : '.html');
               a(href='#{pathPrefix}#{href}')
                 =detail.key
 
@@ -207,7 +207,7 @@ if header
   .col1.navigation-margin.relative.pad20
     .col1
       .col1-4
-        +sidebarNav(classes, pathPrefix)
+        +sidebarNav(classes, pathPrefix, createPartials)
       .col1-2
         #docs-container.cf.docs.col1.pad-g1.main
           .col1.pad-ls-g1.pad-t1
