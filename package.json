@@ -28,7 +28,7 @@
     "minimist": "^1.1.0",
     "mkdirp": "^0.5.0",
     "ncp": "^1.0.0",
-    "yuidocjs": "^0.3.50"
+    "yuidocjs": "^0.4.0"
   },
   "bin": {
     "famous-doc-generator": "bin/cmd.js"
@@ -43,11 +43,11 @@
     "npm": ">=1.4.10"
   },
   "devDependencies": {
-    "eslint": "^0.9.2",
+    "eslint": "^0.10.0",
     "nodemon": "^1.2.0",
     "rimraf": "^2.2.8",
     "tap": "^0.4.13",
-    "tap-spec": "^1.0.0",
+    "tap-spec": "^2.1.1",
     "tape": "^3.0.0"
   }
 }
