@@ -27,11 +27,6 @@ test('setup templateBuilder / yuiSanitizer / yuiRunner', function (t) {
   });
 });
 
-test('Make sure templateBuilder / yuiSanitizer / yuiRunner loads', function (t) {
-  t.ok(templateBuilder, 'templateBuilder should exist after being required');
-  t.end();
-});
-
 test('Make sure templateBuilder actually builds templates', function (t) {
   t.plan(4);
   var options = {
@@ -111,10 +106,10 @@ test('Make sure templateBuilder creates HTML partials', function (t) {
     templateBuilder(options, json, function (err) {
       t.notok(err, 'templateBuilder should finish without an error');
       var dirs = fs.readdirSync(outPath);
-      t.deepEqual(dirs, ['Entity.html', 'physics'], 'templateBuilder should create an Entity.html file');
-      var fixture = fs.readFileSync(path.join(inPath, 'Entity.html'), {encoding: 'utf8'});
-      var output = fs.readFileSync(path.join(outPath, 'Entity.html'), {encoding: 'utf8'});
-      t.equal(output, fixture, 'Entity.html should be a HTML partial');
+      t.deepEqual(dirs, ['Entity.part', 'physics'], 'templateBuilder should create an Entity.part file');
+      var fixture = fs.readFileSync(path.join(inPath, 'Entity.part'), {encoding: 'utf8'});
+      var output = fs.readFileSync(path.join(outPath, 'Entity.part'), {encoding: 'utf8'});
+      t.equal(output, fixture, 'Entity.part should be a HTML partial');
     });
   });
 });

@@ -84,7 +84,8 @@ mixin sidebarNav(classes, pathPrefix)
         each detail in module.data
           if detail.access !== 'protected'
             li
-              -var href = detail.path + '.html'
+              -var href = detail.path
+              - if (!createPartials) href += '.html'
               a(href='#{pathPrefix}#{href}')
                 =detail.key
 
@@ -191,7 +192,6 @@ mixin documentHead()
   |   <meta name="viewport" content="width=device-width"/>
   |   <link href="http://fonts.googleapis.com/css?family=Lato&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css"/>
   |   <link rel='icon' type='image/png' href='#{pathPrefix}/favicon.png'/>
-  |   <link rel='stylesheet' href='#{pathPrefix}/css/famous_styles.css'/>
   | </head>
   | <body>
 
@@ -247,7 +247,11 @@ if header
                 +exampleBlock(example)
 if footer
   !{footer}
-script(type='text/javascript', src='#{pathPrefix}/js/main.js')
+// script(type='text/javascript', src='#{pathPrefix}/js/main.js')
+script
+    include ../lib/assets/js/main.js
+style
+    include ../lib/assets/css/famous_styles.css
 unless createPartials
   +documentFooter()
 
