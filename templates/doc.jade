@@ -139,7 +139,7 @@ mixin quickNav(params, classitems, events, eventInputs, eventOutputs, css)
           each val in params
             if val.props
               each prop in val.props
-                a.col1(href="#options-#{prop.name}")= prop.name
+                div.red= prop.name
 
 
       if classitems.length
@@ -147,7 +147,7 @@ mixin quickNav(params, classitems, events, eventInputs, eventOutputs, css)
           h5 Methods
           for method in classitems
             if (method.access !== 'private' && method.access !== 'protected')
-              a.col1(href="##{method.name}")= method.name
+              div.red= method.name
 
       if events.length || eventInputs.length || eventOutputs.length
         .col1-3
