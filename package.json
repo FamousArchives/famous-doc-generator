@@ -43,10 +43,10 @@
     "npm": ">=1.4.10"
   },
   "devDependencies": {
-    "eslint": "^0.13.0",
+    "eslint": "^0.14.1",
     "nodemon": "^1.2.0",
     "rimraf": "^2.2.8",
-    "tap": "^0.5.0",
+    "tap": "^0.6.0",
     "tap-spec": "^2.1.1",
     "tape": "^3.0.0"
   }
